@@ -85,3 +85,5 @@ exclude:
   - README.md
   - CNAME
   - .jekyll-cache/
+
+theme: jekyll-theme-cayman
