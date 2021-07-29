@@ -1,0 +1,182 @@
+I"�<p>Updated 07/15</p>
+
+<p>Please use the following prompts and button texts when prepping a bot:</p>
+<ul>
+  <li>
+    <p>Button Text</p>
+
+    <p>Augmented</p>
+    <ol>
+      <li>Generate Bids</li>
+      <li>Refresh Page</li>
+      <li>Re-fill Bids from Cache</li>
+      <li>Review Data</li>
+    </ol>
+
+    <p><em>Submit Bid ( After the user clicks on “Go/Submit” button)</em></p>
+    <ol>
+      <li>Submit Bid</li>
+      <li>Do not submit bid</li>
+    </ol>
+
+    <p><em>Account Specific</em></p>
+    <ol>
+      <li>Generate Quick Bids [Generate bids recommendation, for bid that timeout within next x mins, Transplace/ Navisphere ]</li>
+      <li>Record Data [Horizon only]</li>
+    </ol>
+
+    <p><em>Load Board Specific  [JDA]</em></p>
+    <ol>
+      <li>Submit Bids</li>
+      <li>Decline Bids</li>
+      <li>Go to Next Page</li>
+      <li>Go to Previous Page</li>
+      <li>Load More</li>
+    </ol>
+
+    <p>Automated</p>
+    <ol>
+      <li>Generate Bids</li>
+      <li>Refresh Page</li>
+      <li>Review Data</li>
+    </ol>
+  </li>
+  <li>Prompts
+    <ol>
+      <li>
+        <p><strong>No Data Present</strong></p>
+
+        <ul>
+          <li>No data present on loadboard
+  Note: Next node to be called is “Refresh Page”</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>Generate Bids</strong></p>
+
+        <p>Note: All augmented information should be cleared</p>
+        <ul>
+          <li>Generate Bids process started <br />&lt;p style="color:red"&gt;(Do not click on “Generate Bids” process until the process is completed.)&lt;/p&gt;</li>
+          <li>Processing load id $load_id</li>
+          <li>$load_id_text: Process bid decision</li>
+        </ul>
+
+        <p>If Bid is a no go ( $make_bid == false)</p>
+        <ul>
+          <li>$load_id_text: Bid Failed, $bid_failure_reason</li>
+          <li>$load_id_text: Bid Failed, Weight &gt; 45000</li>
+          <li>$load_id_text: Bid Failed, Lead time &lt; 24 hrs</li>
+          <li>$load_id_text: Bid Failed, Origin city $origin_name</li>
+          <li>$load_id_text: Bid Failed, Destination city $destination_name</li>
+          <li>$load_id_text: Bid Failed, Origin state $origin_state</li>
+          <li>$load_id_text: Bid Failed, Destination state $destionation_state</li>
+          <li>$load_id_text: Bid Failed, Equipment Type $equipment_type</li>
+          <li>$load_id_text: Bid Failed, Country is CA</li>
+        </ul>
+
+        <p>If Rate is returned</p>
+        <ul>
+          <li>$load_id_text: $ $bid_submitted recommended rate.</li>
+        </ul>
+
+        <p>If Rate returns an error</p>
+        <ul>
+          <li>$load_id_text: Pricing Failed, $bid_failure_reason ( extracted from Pricing API error message)</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>Refill Bids</strong></p>
+
+        <p>Note: All augmented information should be cleared</p>
+        <ul>
+          <li>
+            <p>Refilling Bids process started <br />&lt;p style="color:red"&gt;(Do not click on “Refill Bids” process until the process is completed.)&lt;/p&gt;
+ If all bids are populated</p>
+          </li>
+          <li>
+            <p>All bids populated
+ If not all bids are populated (List all load_id will failed to refill)</p>
+          </li>
+          <li>
+            <p><span style="color:red">Load ID: “+$load_id+”, data not found.”</span></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>Submit Bids</strong></p>
+
+        <p>$load_id: Bid Submitted for $ xxxxx.xx</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Sending Load information to Teams</p>
+
+    <p>Should only be sent via Teams Cards format.
+  Success:[ Blue Line ]</p>
+
+    <p><img src="/images/prompt_success.png" alt="an image alt text" title="prompt success" /></p>
+
+    <p>Failure: [ Red line ]</p>
+
+    <p><img src="/images/prompt_failure.png" alt="an image alt text" title="prompt failure" /></p>
+
+    <p><strong>Title: &lt;Account Name&gt; , Quote #&lt;load-id/shipment-id&gt;</strong></p>
+
+    <p>Company Name: <origin-company-name> ( If present on loadboard)</origin-company-name></p>
+
+    <p>Pickup:   <orig-city>, <orig-state> -  <orig-postal-code> <orig-country></orig-country></orig-postal-code></orig-state></orig-city></p>
+
+    <p>Pickup Date/Time: <origin-datetime> (Value from loadboard not formatted)</origin-datetime></p>
+
+    <p>Drop:   <dest-city>, <dest-state>  - <dest-postal-code> <dest-country></dest-country></dest-postal-code></dest-state></dest-city></p>
+
+    <p>Drop Date/Time: <origin-datetime> (Value from loadboard not formatted)</origin-datetime></p>
+
+    <p>Equipment Type: <equipment-type-text>(from loadboar) ( <equipment-type-code> from analytics tree)</equipment-type-code></equipment-type-text></p>
+
+    <p>Distance: <distance_text> ( from loadboard )</distance_text></p>
+
+    <p>Weight: <weight_text> ( from loadboard )</weight_text></p>
+
+    <p>Stops: <stop_text> ( from loadboard )</stop_text></p>
+
+    <p>Bid Datetime : <current-time> ( calculated)</current-time></p>
+
+    <p>Make Bid: <make-bid> (from analytics tree)</make-bid></p>
+
+    <p>Bid Failure Reason: <bid-failure-reason> (from analytics tree)</bid-failure-reason></p>
+
+    <p>Recommended Amount: <recommended-amount> (calculated)</recommended-amount></p>
+
+    <p>[Pricing Augmentation Information]</p>
+
+    <p>Additional Amount :</p>
+
+    <p>Lane Count:   (Only if lane count is needed )</p>
+
+    <p>[Below two fields will change based on information from pricing api]</p>
+
+    <p>All-in-Rate:</p>
+
+    <p>Line Haul:</p>
+
+    <p>Quote Id:</p>
+
+    <p>[Flag Information  - From loadboard or Analytics Tree]</p>
+
+    <p>Hazmat Flag:</p>
+
+    <p>Team Driver:</p>
+
+    <p>Multi-Stop:</p>
+
+    <p>[Add field that will help determine bid failure reason or manual bid or pricing augmentation]</p>
+
+    <p>Special Handling:</p>
+
+    <p>Comments:</p>
+  </li>
+</ul>
+
+:ET

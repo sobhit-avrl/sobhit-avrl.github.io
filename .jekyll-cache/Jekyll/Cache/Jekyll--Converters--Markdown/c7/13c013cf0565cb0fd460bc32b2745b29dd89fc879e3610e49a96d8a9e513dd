@@ -1,0 +1,79 @@
+I"<<p>Updated 07/15</p>
+
+<p>The Companion App has a wide range of functionality</p>
+<ul>
+  <li>
+    <p><strong>Scheduling Bots to Run</strong></p>
+
+    <p>The CA checks it’s local config file to see at what specific minutes it should reach out the ARPA scheduler tree to see what bots it should run. If there is a match on the scheduler tree, it opens up Chrome
+ When the bot is complete, the tree should have a command that makes the Chrome Extension close itself.</p>
+  </li>
+  <li>
+    <p><strong>Receiving Instructions from Bots to run certain modules</strong></p>
+
+    <p>Although Generation ARPA has a lot of power, it’s privileges are greatly restricted by Chrome in the interests of user safety. To allow ARPA to do new &amp; interesting things, such as taking screenshots, etc, the CA allows us to add python applications to the CA root folder and then to call those python applications from the ARPA tree. The process flow is:
+ ARPA Tree → ARPA ChromeExt → ARPA CA → module to run
+ These are built as modules to give only specific clients access to only specific functionality. One such functionality is a DB connector that connects the Companion App to the client’s SQL DB.</p>
+  </li>
+  <li>
+    <p><strong>Reading &amp; Writing information to the ARPA Companion App DB</strong></p>
+
+    <p>To ensure that login credentials and other secret data is stored inside the client network, storage of credentials should never be on the tree (as trees are stored on GCP). They should only be stored on the CADB. There is other information too (such as personalized user preferences, wherein a bot can read user variables from the CADB to change its behavior, like Google Ads’ web cookies that influence what ads you see).</p>
+
+    <p>The standard behavior of the CADB is to default to the usage of it’s primary table “generalkv”. This table has 4 columns:</p>
+
+    <p>primary key: pk VARCHAR(255)</p>
+
+    <p>deprecated, naive value: val</p>
+
+    <p>json_value: jval JSON(5000)</p>
+
+    <p>when the insert happened: created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP</p>
+  </li>
+  <li>
+    <p><strong>Finding matching primary keys using wildcards</strong></p>
+
+    <p>Queries to the ARPA CADB can search for values from the table using wildcards. An example of a command that should be put into the ARPA tree to find all matching trees for this dataset is:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: left">key</th>
+          <th style="text-align: left">value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: left">person-vikash</td>
+          <td style="text-align: left">11</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">person-victoria</td>
+          <td style="text-align: left">12</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">city-hyderabad</td>
+          <td style="text-align: left">14</td>
+        </tr>
+        <tr>
+          <td style="text-align: left">town-whitby</td>
+          <td style="text-align: left">15</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The syntax for this is companion_db_get_with_wildcard(‘<wildcard>') and an example of this is companion_db_get_with_wildcard('person-v%') which would yield a result of a NON-JSON list:
+ [{ "person-vikash" : 11}, {"person-victoria": 12} ]</wildcard></p>
+
+    <p><span style="color:red">In case of failure to retrieve this data, this function will return a generic string “failed”. These failures could range from DB unavailability to other unanticipated failures.
+ This failure does not include cases where there are no matching results. No matching results will yield an empty list.</span></p>
+
+    <p>Matching values in other columns is also possible using the API call method. For more on this method, AVRL team should reach out to Vikash Ranjan; and non-AVRL employees should reach out to their Project Manager.</p>
+
+    <p><img src="/images/ca_one.png" alt="an image alt text" title="Wildcards in SQL 1" /></p>
+
+    <p><img src="/images/ca_two.png" alt="an image alt text" title="Wildcards in SQL 2" /></p>
+  </li>
+</ul>
+
+:ET

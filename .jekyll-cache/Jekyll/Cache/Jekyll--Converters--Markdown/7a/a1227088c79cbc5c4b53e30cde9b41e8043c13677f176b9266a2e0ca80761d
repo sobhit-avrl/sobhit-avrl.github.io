@@ -1,0 +1,11 @@
+I"�<p>Updated 07/15</p>
+
+<ul>
+  <li>
+    <p>Lowercase with hyphens for keys</p>
+  </li>
+  <li>
+    <p>Should start with “credentials”, the second term should be a unique identifier for that board, but doesn’t need to list the customer name, the third term should list what kind of value it contains (examples: username, password, sessionkey, apikey, token, etc.)</p>
+  </li>
+</ul>
+:ET

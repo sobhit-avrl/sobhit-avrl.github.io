@@ -1,0 +1,6 @@
+I"�<p>Updated 07/15</p>
+
+<p>When creating your tree, use the DB patch to store your passwords. Information should be stored in key-value format only. So every entry will have one “key” and one “value; and therefore, for credentials, there will be atleast 2 entries in the DB, whose keys will be of the form “credentials-quaker-username” and “credentials-quaker-password”</p>
+
+<p><strong>Do not store credentials in your trees</strong></p>
+:ET

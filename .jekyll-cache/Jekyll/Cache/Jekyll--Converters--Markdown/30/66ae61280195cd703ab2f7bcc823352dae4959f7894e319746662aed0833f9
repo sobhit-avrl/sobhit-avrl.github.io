@@ -1,0 +1,48 @@
+I"�<p>Updated 07/16</p>
+
+<p>Tree names are composed of multiple sections, and are prepended with “demo_”. Demo trees are never to be used live and are for limited internal demos. Tree naming structure must follow this rule :</p>
+
+<p>bidboards chatbot : <strong>&lt;lb/ta&gt;_&lt;tms&gt;_&lt;accountname&gt;{_&lt;option2/3/4&gt;}&gt;}</strong></p>
+
+<p>bnb analytics : <strong>&lt;lb/ta&gt;_&lt;tms&gt;_&lt;accountname&gt;_bnb_&lt;customer&gt;</strong></p>
+
+<p>pa analytics: <strong>&lt;lb/ta&gt;_&lt;tms&gt;_&lt;accountname&gt;{_&lt;option2/3/4&gt;}&gt;}_pa_&lt;customer&gt;</strong></p>
+
+<p>auto accept tender acceptance analytics : <strong>&lt;lb/ta&gt;_&lt;tms&gt;_&lt;accountname&gt;{_&lt;option2/3/4&gt;}&gt;}_autoaccept_&lt;customer&gt;</strong></p>
+
+<p>Examples:</p>
+<ul>
+  <li>lb_mg_dicksonfurniture ( ARPA/Chatbot)</li>
+  <li>lb_mg_dicksonfurniture_bnb_jbhunt  (Bid / No bid for the above lb tree for jbhunt)</li>
+  <li>lb_mg_dicksonfurniture_pa (Pricing augmentation)</li>
+</ul>
+
+<p>Keys:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Syntax</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Test Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Ib/ta</td>
+      <td style="text-align: left">Ib</td>
+      <td style="text-align: left">Loadboard</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tree Purpose</td>
+      <td style="text-align: left">ta <br /> apiglue</td>
+      <td style="text-align: left">Tender Acceptance <br /> API glue</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tms <br /> TMS OEM</td>
+      <td style="text-align: left">mg <br /> bj <br /> ns <br /> jda <br /> manh <br /> oracle <br /> hs <br /> us <br /> fv <br /> gocloud <br /> ratelinx <br /> tp <br /> transporeon <br /> pbs <br /> costco <br /> niagara <br /> cp</td>
+      <td style="text-align: left">Mercury Gate <br /> Blujay <br /> Navisphere <br /> JDA <br /> Manhattan <br /> Oracle <br /> Haversack <br /> Ultraship <br /> FreightView <br /> Gocloud <br /> Ratelinx <br /> Transplace <br /> Transporeon <br /> Postbidship <br /> Costco <br /> Niagara <br /> Carrier Point</td>
+    </tr>
+  </tbody>
+</table>
+:ET

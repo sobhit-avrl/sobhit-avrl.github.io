@@ -1,0 +1,21 @@
+I"�<p>Updated 07/15</p>
+
+<p>The CA is capable of running modules present locally to the folder of the CA. This is great because the functionality of the CA can be extended on a client-specific basis (but modules can be shared across a certain select set of clients, if they’ve paid for that module).
+The ARPA command to get the CA to run a module is:</p>
+
+<div style="background-color: yellow;padding: 5px;">COMPRUNSCRIPT(\&lt;module_name\&gt;, \&lt;module_params\&gt;, \&lt;wait_for_response:bool\&gt;, \&lt;is_python_script:bool\&gt;, \&lt;python_command\&gt;)</div>
+
+<p>The parameters are:</p>
+<ul>
+  <li>module_name: The name of the module without the “avrlmodule_” prefix</li>
+  <li>module_params: Module params can be sent in two ways depending on how module is accepting it:
+    <ul>
+      <li>if module is expecting string (single args ) “USA”, (multiple string args) “USA,CA,MODESTO”</li>
+      <li>JSON object {“country”:”USA”,”city”:”MODESTO”,”state”:”CA”}</li>
+    </ul>
+  </li>
+  <li>wait_for_response: Sometimes ARPA doesn’t care about the module providing a response. In these cases, this value could be set to false, allowing ARPA to proceed without waiting for a response</li>
+  <li>is_python_script: The CA needs to differentiate between exe modules and .py modules. This parameter allows it to differentiate and run the module correctly</li>
+  <li>python_command: —-? &lt;python&gt;,&lt;python3&gt; ,&lt;python2&gt;(can be different on different systems)</li>
+</ul>
+:ET

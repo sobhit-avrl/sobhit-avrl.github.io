@@ -1,0 +1,37 @@
+I"�<p>Updated 15/7</p>
+
+<p>When an FDE needs to start working on a tree (a non Boomerang tree), the following steps need to be followed:</p>
+<ul>
+  <li>Log into templates.avrlgeneration.com</li>
+  <li>Check if the target is present in the list of trees. Naming format is:
+    <ul>
+      <li>&lt;lb/ta&gt;<em>&lt;tms&gt;</em>&lt;accountname&gt;{_&lt;option2/3/4&gt;}</li>
+    </ul>
+  </li>
+  <li>If the target tree you were looking for:
+    <ul>
+      <li>
+        <p>IS PRESENT in the templates account, open it <br />
+  <strong>Do not open trees that have an “option2” or “option3” suffix, those are created only to serve a temporary need and have already been allocated to someone!</strong></p>
+      </li>
+      <li>
+        <p>IS NOT PRESENT in the templates account, ask the approvers for a clone and open it when they grants you one <br />
+  <strong>The templates account is special, if you create a clone in templates, it every single studio user of templates automatically gets access and you do not have to add a separate access request in the requester</strong></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>When you open the tree, check the root node to see if there is another FDE’s name in it. If there:</p>
+
+    <ul>
+      <li>
+        <p>IS A NAME present, it means that someone else is using this tree. You will need an option2 clone. Ask the approvers for this.</p>
+      </li>
+      <li>
+        <p>IS NO NAME present, it means that this tree is usable by you, <strong>you must put your name in the root node to ensure that anyone else looking at the tree knows it is being edited by you and doesn’t edit it themselves</strong></p>
+      </li>
+    </ul>
+  </li>
+  <li>Now you can start working on your tree</li>
+</ul>
+:ET

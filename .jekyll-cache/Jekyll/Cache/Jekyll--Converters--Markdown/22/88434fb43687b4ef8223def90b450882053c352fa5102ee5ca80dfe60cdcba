@@ -1,0 +1,191 @@
+I"(<p>Updated on 07/15</p>
+
+<p>Here are the steps for setting up a CA on a new PC or VM. 
+<strong>Before the HO call:</strong></p>
+<ul>
+  <li>PM/TDM to create a consumer account for the CA and this request to be sent to approvers channel
+    <ul>
+      <li>Consumer User Name:
+  Format: uaconsumer<identifier> 
+  identifier is any way to describe this VM, i.e., warehouse1. **NO SPACES**</identifier></li>
+    </ul>
+
+    <p>eg: uaconsumerwarehouse1</p>
+    <ul>
+      <li>
+        <p>Consumer Full Name:
+  Format: Unattended Consumer <identifier> 
+  eg: Unattended Consumer Warehouse Black PC</identifier></p>
+      </li>
+      <li>
+        <p>Consumer User Email ID: <u>ashwin@avrl.io </u></p>
+      </li>
+      <li>
+        <p>Consumer User Group: default</p>
+      </li>
+      <li>
+        <p>Reason: For setting up UA process on <strong>__</strong>___</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Engineering to configure this file generation_companion_config.json for:</p>
+
+    <p>For Automated</p>
+
+    <ol>
+      <li>client_name</li>
+      <li>username</li>
+      <li>password</li>
+      <li>scheduler_id</li>
+      <li>error_webhook</li>
+      <li>gui_error_messsage</li>
+      <li>minutes (5 mins intervals)</li>
+      <li>scheduler_tree</li>
+      <li>Format: <client_name>_lb_&lt;prod/dev/test&gt;_scheduler_vX</client_name></li>
+    </ol>
+  </li>
+  <li>
+    <p>Create a client specific folder on GCS in (<a href="https://console.cloud.google.com/storage/browser/customer_facing_downloads/arpa_companion_app?project=avrlgeneration&amp;pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&amp;prefix=&amp;forceOnObjectsSortingFiltering=false" target="_blank">https://console.cloud.google.com/storage/browser/customer_facing_downloads/arpa_companion_app?project=avrlgeneration&amp;pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&amp;prefix=&amp;forceOnObjectsSortingFiltering=false</a>) and add :</p>
+
+    <ul>
+      <li>Config file previously created</li>
+      <li>logdb</li>
+      <li>Any additional files that are needed</li>
+    </ul>
+  </li>
+  <li>Setup and Test Scheduler tree with the scheduler_id configured in step 2.</li>
+</ul>
+
+<p><strong>During / On the HO call:</strong></p>
+
+<ol>
+  <li>
+    <p>Follow this step (step 1) <strong>only if</strong> the CA has not been installed on this PC before :</p>
+
+    <ul>
+      <li>
+        <p>Download the installer from <a href="https://storage.googleapis.com/misc_demo_staging_dr/generation_companion/installer_generation_companion.exe" target="_blank">https://storage.googleapis.com/misc_demo_staging_dr/generation_companion/installer_generation_companion.exe</a></p>
+
+        <p><strong>[ Link updated on 07/22, update to 003122072021]</strong></p>
+      </li>
+      <li>
+        <p>Double click on the exe after downloading</p>
+      </li>
+    </ul>
+
+    <p><span style="color:red">Warning: If the install script is run a second time, any existing config file will be overwritten.</span></p>
+
+    <ul>
+      <li>It will prompt with a blue dialog box</li>
+    </ul>
+
+    <p><img src="/images/installing_1.png" alt="an image alt text" title="an image title" /></p>
+
+    <p>Click on More Info.</p>
+
+    <p><img src="/images/installing_2.png" alt="an image alt text" title="an image title" /></p>
+
+    <p>Click on Run Anyway</p>
+
+    <p>A command line window will appear</p>
+
+    <p><img src="/images/installing_3.png" alt="an image alt text" title="an image title" /></p>
+  </li>
+  <li>
+    <p>Navigate to C:\Users&lt;logged-user-name&gt;\AVRL Generation\Generation Companion to check if the application is installed.</p>
+  </li>
+  <li>
+    <p>Download the client-specific folder.
+ https://storage.googleapis.com/customer_facing_downloads/arpa_companion_app/<client_name>/<random-filename>/<account name="">/<filename>.zip</filename></account></random-filename></client_name></p>
+
+    <p>Replace the config file present in the Companion App folder. Retrieve this config file from the link above in #3; place in C:\Users&lt;logged-user-name&gt;\AVRL Generation\Generation Companion\</p>
+  </li>
+  <li>
+    <p>Double click on generation_companion.exe to check if the configuration file is correct.</p>
+
+    <p><img src="/images/installing_4.png" alt="an image alt text" title="an image title" /></p>
+
+    <p>Vikash will debug any issues.</p>
+
+    <p>Expected issue:</p>
+    <ul>
+      <li>Credentials are not correctly copied</li>
+      <li>The Scheduler Tree is missing or incorrect.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Check is desktop shortcut is working</p>
+
+    <p><img src="/images/installing_5.png" alt="an image alt text" title="an image title" /></p>
+
+    <p>This link should be visible on desktop</p>
+  </li>
+  <li>
+    <p>Check if the startup link is working correctly.</p>
+
+    <ul>
+      <li>
+        <p>In cmd line type: shell:starup</p>
+
+        <p><img src="/images/installing_6.png" alt="an image alt text" title="an image title" /></p>
+      </li>
+      <li>
+        <p>You should see a shortcut link in the folder opened</p>
+
+        <p><img src="/images/installing_7.png" alt="an image alt text" title="an image title" /></p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>CA installation for Augmented Bots</strong></p>
+
+<ol>
+  <li>
+    <p>Install CA app via installer</p>
+  </li>
+  <li>
+    <p>Download [CSV file, CA modules]  from client_specific_folder. (<a>https://storage.googleapis.com/customer_facing_downloads/arpa_companion_app/…</a>)</p>
+
+    <p>Need to be created before the HO call.</p>
+  </li>
+  <li>
+    <p>Transfer data.csv into C:\Users&lt;windows-username&gt;\AVRL Generation\Generation Companion\patch</p>
+  </li>
+  <li>
+    <p>Run db-patch.exe</p>
+
+    <ul>
+      <li>
+        <p>Enter 1 and press enter.( Your choice)</p>
+
+        <p><img src="/images/installing_8.png" alt="an image alt text" title="an image title" /></p>
+      </li>
+      <li>
+        <p>Enter y and press enter  to update credentials. ( Confirm loading)</p>
+
+        <p><img src="/images/installing_9.png" alt="an image alt text" title="an image title" /></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Update generation_companion_config.json with consumer details</p>
+
+    <ul>
+      <li>client_name</li>
+      <li>username</li>
+      <li>password</li>
+    </ul>
+
+    <p>Save the file.</p>
+  </li>
+  <li>
+    <p>Run Companion App</p>
+  </li>
+  <li>
+    <p>Then proceed to install ARPA Bot Chrome extension</p>
+  </li>
+</ol>
+
+:ET

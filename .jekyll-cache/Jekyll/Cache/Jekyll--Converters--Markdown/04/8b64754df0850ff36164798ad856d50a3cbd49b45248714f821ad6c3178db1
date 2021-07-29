@@ -1,0 +1,23 @@
+I"Ê<p>Conventions ( Variable Names )</p>
+
+<ul>
+  <li>
+    <p>Variable names need to be lowercase and contain underscores to separate tokens
+  Valid: $client_id, $distance
+  <em>Invalid</em> : <em>$ORIGIN</em> , <em>$Destination</em> _ <em>Id</em></p>
+  </li>
+  <li>
+    <p>Variables should be used across all nodes as though they are in global scope
+  This means that:</p>
+    <ul>
+      <li>do not reuse a variable name for a different purpose</li>
+    </ul>
+  </li>
+</ul>
+
+<p>e.g., the index variable for generated bid &amp; refill bid shouldnâ€™t have the same name</p>
+
+<p>Valid: $generate_bid_row_index, $refill_bid_row_index</p>
+
+<p><em>Invalid</em>: <em>$index</em> <em>(used for generate and refill)</em></p>
+:ET

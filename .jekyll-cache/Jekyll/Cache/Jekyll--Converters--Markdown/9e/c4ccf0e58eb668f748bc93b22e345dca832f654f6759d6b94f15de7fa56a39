@@ -1,0 +1,20 @@
+I"�<p>Updated 07/15</p>
+
+<p>Studio credentials should <strong>always</strong> end in “studio”, and should be the person’s initials at the start. If the initials overlap with someone else’s initials, add an incrementing 2-digit counter to the initials starting at 01.</p>
+
+<p><span style="color:green">Correct: vrstudio, vr02studio</span></p>
+
+<p><span style="color:red">Wrong: vikashranjanstudio, vrstudio2, vrstudio02</span></p>
+
+<p>Consumer credentials should always end in “consumer” and should be the person’s initials at the start. If the initials overlap with someone else’s initials, add an incrementing 2-digit counter to the initials, starting at 01.</p>
+
+<p><span style="color:green">Correct: vr02consumer</span></p>
+
+<p><span style="color:red">Wrong: vikashranjanconsumer, vrconsumer2, vrconsumer02</span></p>
+
+<p>Unattended bots should start with a “ua” prefix, followed by a descriptor and then a “consumer” postfix. No words should follow the “consumer” part.</p>
+
+<p><span style="color:green">Correct: uaconsumer, ua02consumer, uawarehouseconsumer</span></p>
+
+<p><span style="color:red">Wrong: unattendedconsumer, uaconsumerdevavrl, ca_test</span></p>
+:ET
